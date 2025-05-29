@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CasinoX - Cassino Online</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: linear-gradient(135deg, #1e1e2f, #2e2e4f); color: white; }
+    .topbar { background: #111; color: #fff; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .topbar button { background: #e91e63; border: none; padding: 8px 12px; color: white; border-radius: 5px; cursor: pointer; }
+    .navbar { background: #222; padding: 10px 0; text-align: center; }
+    .navbar a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    .hero { text-align: center; padding: 100px 20px; background: rgba(0, 0, 0, 0.4); }
+    .hero h1 { font-size: 48px; margin-bottom: 10px; }
+    .hero p { font-size: 20px; margin-bottom: 20px; }
+    .hero button { background: #4caf50; border: none; padding: 12px 20px; color: white; font-size: 16px; border-radius: 5px; cursor: pointer; }
+    main { padding: 50px 20px; max-width: 1000px; margin: auto; }
+    section { margin-bottom: 50px; }
+    section h2 { font-size: 32px; margin-bottom: 10px; }
+    section p { margin-bottom: 10px; }
+    section button { background: #2196f3; border: none; padding: 10px 16px; color: white; border-radius: 5px; cursor: pointer; }
+    footer { background: #111; padding: 40px 20px; text-align: center; }
+    footer h3 { margin-bottom: 20px; }
+    footer form { display: flex; flex-direction: column; gap: 10px; max-width: 400px; margin: auto; }
+    footer input, footer textarea { padding: 10px; border: none; border-radius: 5px; }
+    footer button { background: #ff9800; border: none; padding: 10px; border-radius: 5px; cursor: pointer; color: white; }
+    .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+    .modal-content { background: #333; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px; position: relative; text-align: center; }
+    .modal-content input { display: block; width: 100%; margin: 10px 0; padding: 10px; border-radius: 5px; border: none; }
+    .modal-content button { background: #03a9f4; border: none; padding: 10px; border-radius: 5px; cursor: pointer; color: white; }
+    .close { position: absolute; top: 10px; right: 20px; font-size: 24px; cursor: pointer; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <span>🎰 CasinoX - Bem-vindo ao seu cassino virtual</span>
+    <button onclick="toggleLoginModal()">Login</button>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#home">Início</a>
+    <a href="#slots">Caça-níqueis</a>
+    <a href="#roleta">Roleta</a>
+    <a href="#blackjack">Blackjack</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <!-- Header -->
+  <header class="hero" id="home">
+    <h1>Jogue e vença no CasinoX!</h1>
+    <p>Uma experiência inovadora e divertida de cassino online</p>
+    <button onclick="alert('Cadastro ainda não disponível')">Cadastre-se</button>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <section id="slots">
+      <h2>🎰 Caça-níqueis</h2>
+      <p>Gire os rolos e ganhe prêmios incríveis!</p>
+      <button onclick="playSlot()">Jogar agora</button>
+    </section>
+
+    <section id="roleta">
+      <h2>🎡 Roleta</h2>
+      <p>Aposte na sorte e veja a roleta girar!</p>
+      <button onclick="playRoulette()">Girar</button>
+    </section>
+
+    <section id="blackjack">
+      <h2>🃏 Blackjack</h2>
+      <p>Desafie o dealer e chegue mais perto de 21!</p>
+      <button onclick="playBlackjack()">Jogar</button>
+    </section>
+  </main>
+
+  <!-- Contato -->
+  <footer id="contato">
+    <h3>Entre em contato</h3>
+    <form onsubmit="event.preventDefault(); alert('Mensagem enviada!');">
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu e-mail" required />
+      <textarea placeholder="Mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </footer>
+
+  <!-- Modal de Login -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" onclick="toggleLoginModal()">&times;</span>
+      <h2>Login</h2>
+      <input type="text" placeholder="Usuário" />
+      <input type="password" placeholder="Senha" />
+      <button onclick="alert('Login ainda não implementado')">Entrar</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleLoginModal() {
+      const modal = document.getElementById('loginModal');
+      modal.classList.toggle('hidden');
+    }
+
+    function playSlot() {
+      alert('🎰 Você girou os rolos e ganhou 50 moedas! (Simulação)');
+    }
+
+    function playRoulette() {
+      const result = Math.random() > 0.5 ? 'vermelho' : 'preto';
+      alert(`🎡 A roleta parou em ${result.toUpperCase()}! (Simulação)`);
+    }
+
+    function playBlackjack() {
+      alert('🃏 Você tirou 20 e venceu o dealer! (Simulação)');
+    }
+  </script>
+</body>
+</html>
